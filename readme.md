@@ -1,6 +1,6 @@
-#imgscale plugin 0.0.1
+#imgpop plugin 0.0.3
 
-Image scale for Yellow with dimmed background and subtitle, CCS only, no Javascript required.
+CSS only image popup for Yellow with dimmed background and subtitle, no Javascript required.
 
 ## The Idea Behind
 
@@ -8,7 +8,7 @@ I wanted to have a simple use of images in my blog (http://blog.nosi.de → Germ
 
 To avoid loading external and huge javascript, I created a few more CSS styles and this plugin, to expand the basic behaviour.
 
-The image is scaled to it´s maximum size of itself or — if too large for viewport — 90% width or 80% height aspect ratio kept. It is *not* scaled to max-width!  
+The image pops up to it´s maximum size or — if too large for viewport — 90% width or 80% height aspect ratio kept.
 
 ## How do I Install This?
 
@@ -16,15 +16,27 @@ The image is scaled to it´s maximum size of itself or — if too large for view
 1. Donwload imgscale.php and copy it into the `system/plugins` folder.
 1. Add the required css styles to your style sheet (see below)
 
-## How To Add A Scaled Image?
+## How To Add A Popup Image?
+
+> Small and big image are the same. This means, that calling the page, loads the full image, but showing the full size needs no reload. Therefore you should optimize your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. The image is limited to its true size with the styles below. You can alter this. Be aware, that small images zoomed to bigger than true size very seldom look nice.
+
 
 Create a `[imgscale TheImage TheTitle TheID]` shortcut.
 
 The following arguments are available:
 
 `TheImage` = Filename and path (relative to `media/images` !) to the image, **required**     
-`TheTitle` = The Title for the image as `title` tag and subtitle. If missing, currently replaced by „Keine weitere Bildbeschreibung“     
-`TheID` = The ID of the target. If missing, replaced by a timestamp (**not unique** if more than one image!)
+`TheTitle` = The Title for the image as `title` tag and subtitle.     
+`TheID` = The ID of the target. If missing, replaced by a timestamp (**not unique** if more than one image!). 
+
+> You should *always* give an unique ID for the image.
+
+Missing filename and missing title are are notified with a text in output page, that can be altered in head of plugin:
+
+- `onst NoTitle = "Keine weitere Bildbeschreibung";` 
+- `const NoImg = "<b>Bildquelle fehlt</b>";`
+
+
 
 It´s licensed under [MIT license](http://opensource.org/licenses/MIT).
 

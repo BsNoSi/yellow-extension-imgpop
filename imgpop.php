@@ -1,12 +1,15 @@
 <?php
-// Copyright (c) 2013-2015 Datenstrom, http://datenstrom.se
+// Yellow Copyright (c) 2013-2016 Datenstrom, http://datenstrom.se
+// imgpop Copyright (c) 2016 Norbert Simon, http://www.nosi.de
 // This file may be used and distributed under the terms of the public license.
 // Autor: Norbert Simon
 
-// Image Scale with CSS-styles plugin
-class YellowImgScale
+// Image popup with CSS-styles plugin
+class YellowImgPop
 {
-	const Version = "0.0.1";
+	const Version = "0.0.3";
+  const NoTitle = "Keine weitere Bildbeschreibung";
+  const NoImg = "<b>Bildquelle fehlt</b>";
 	var $yellow;			//access to API
 	
 	// Handle initialisation
@@ -19,14 +22,14 @@ class YellowImgScale
 	function onParseContentBlock($page, $name, $text, $shortcut)
 	{
 		$output = NULL;
-		if($name=="imgscale" && $shortcut)
+		if($name=="imgpop" && $shortcut)
 		{
 			list($TheImage, $TheTitle, $TheID) = $this->yellow->toolbox->getTextArgs($text);
       if(empty($TheID)) $TheID = time();
-      if(empty($TheTitle)) $TheTitle = "Keine weitere Bildbeschreibung";
+      if(empty($TheTitle)) $TheTitle = NoTitle;
       if(empty($TheImage)) 
        {
-       $output = "<b>Bildquelle fehlt</b>";  
+       $output = NoImg;  
      }
       else
       {
@@ -43,5 +46,5 @@ class YellowImgScale
 	}
 }
 
-$yellow->plugins->register("imgscale", "Yellowimgscale", YellowimgScale::Version);
+$yellow->plugins->register("imgpop", "YellowImgPop", YellowImgPop::Version);
 ?>
