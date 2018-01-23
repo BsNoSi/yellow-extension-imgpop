@@ -34,7 +34,7 @@ The following arguments are available:
 
 Missing filename and missing title are are notified with a text in output page, that can be altered in head of plugin:
 
-- `onst NoTitle = "Keine weitere Bildbeschreibung";` 
+- `const NoTitle = "Keine weitere Bildbeschreibung";` 
 - `const NoImg = "<b>Bildquelle fehlt</b>";`
 
 
