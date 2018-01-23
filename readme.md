@@ -1,4 +1,4 @@
-#imgpop plugin 0.0.3
+#imgpop plugin 0.0.5
 
 CSS only image popup for Yellow with dimmed background and subtitle, no Javascript required.
 
@@ -21,13 +21,14 @@ The image pops up to it´s maximum size or — if too large for viewport — 90%
 > Small and big image are the same. This means, that calling the page, loads the full image, but showing the full size needs no reload. Therefore you should optimize your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. The image is limited to its true size with the styles below. You can alter this. Be aware, that small images zoomed to bigger than true size very seldom look nice.
 
 
-Create a `[imgscale TheImage TheTitle TheID]` shortcut.
+Create a `[imgpop TheImage TheTitle TheID TheClass]` shortcut.
 
 The following arguments are available:
 
 `TheImage` = Filename and path (relative to `media/images` !) to the image, **required**     
 `TheTitle` = The Title for the image as `title` tag and subtitle.     
 `TheID` = The ID of the target. If missing, replaced by a timestamp (**not unique** if more than one image!). 
+`TheClass` =  Optional css class for additional formatting, to override the standard (s. below)
 
 > You should *always* give an unique ID for the image.
 
