@@ -7,7 +7,7 @@
 // Image popup with CSS-styles plugin
 class YellowImgPop
 {
-	const Version = "0.0.3";
+	const Version = "0.0.5";
   const NoTitle = "Keine weitere Bildbeschreibung";
   const NoImg = "<b>Bildquelle fehlt</b>";
 	var $yellow;			//access to API
@@ -24,7 +24,7 @@ class YellowImgPop
 		$output = NULL;
 		if($name=="imgpop" && $shortcut)
 		{
-			list($TheImage, $TheTitle, $TheID) = $this->yellow->toolbox->getTextArgs($text);
+			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
       if(empty($TheID)) $TheID = time();
       if(empty($TheTitle)) $TheTitle = NoTitle;
       if(empty($TheImage)) 
@@ -34,8 +34,12 @@ class YellowImgPop
       else
       {
        $TheImage = $this->yellow->config->get("imageDir").$TheImage;
-       $output = "<span id=\"" . $TheID . "\">";
-       $output .= "<a id=\"" . $TheID . "close\" href=\"#" . $TheID . "\" title=\"" . htmlspecialchars($TheTitle) . "\">";
+       $output = "<span id=\"" . $TheID . "\"";
+       if(!empty($TheClass)) 
+       {
+         $output .= "class=\"" . $TheClass  . "\"";
+       } 
+       $output .= "><a id=\"" . $TheID . "close\" href=\"#" . $TheID . "\" title=\"" . htmlspecialchars($TheTitle) . "\">";
        $output .= "<img src=\"/" . $TheImage . "\" title=\"" . htmlspecialchars($TheTitle) . "\"></a>";
        $output .= "<span class=\"imgnote\">" . htmlspecialchars($TheTitle) . "</span>";
        $output .= "<a class=\"closer\" href=\"#" . $TheID . "close\">&otimes;</a>";
