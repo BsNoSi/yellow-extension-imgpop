@@ -27,7 +27,7 @@ The following arguments are available:
 
 `TheImage` = Filename and path (relative to `media/images` !) to the image, **required**     
 `TheTitle` = The Title for the image as `title` tag and subtitle.     
-`TheID` = The ID of the target. If missing, replaced by a timestamp (**not unique** if more than one image!). 
+`TheID` = The ID of the target. If missing, replaced by a timestamp (**not unique** if more than one image!).      
 `TheClass` =  Optional css class for additional formatting, to override the standard (s. below)
 
 > You should *always* give an unique ID for the image.
