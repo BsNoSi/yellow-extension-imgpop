@@ -7,9 +7,9 @@
 // Image popup with CSS-styles plugin
 class YellowImgPop
 {
-	const Version = "0.0.5";
+	const Version = "0.0.6";
   const NoTitle = "Keine weitere Bildbeschreibung";
-  const NoImg = "<b>Bildquelle fehlt</b>";
+  const NoImg = "<b style=\"color:#FF0000\">Bildquelle fehlt!</b>";
 	var $yellow;			//access to API
 	
 	// Handle initialisation
@@ -26,10 +26,10 @@ class YellowImgPop
 		{
 			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
       if(empty($TheID)) $TheID = time();
-      if(empty($TheTitle)) $TheTitle = NoTitle;
+      if(empty($TheTitle)) $TheTitle = self::NoTitle;
       if(empty($TheImage)) 
        {
-       $output = NoImg;  
+       $output = self::NoImg;  
      }
       else
       {
