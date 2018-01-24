@@ -1,4 +1,4 @@
-# Yellow Plugin imgpop 0.0.5
+# Yellow Plugin imgpop 0.0.6
 
 CSS only image popup for Yellow with dimmed background and subtitle, no additional script required.
 
