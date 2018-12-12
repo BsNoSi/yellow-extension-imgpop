@@ -1,15 +1,14 @@
 <?php
-// Yellow Copyright (c) 2013-2016 Datenstrom, http://datenstrom.se
-// imgpop Copyright (c) 2016 Norbert Simon, http://www.nosi.de
+// imgPop plugin, https://github.com/BsNoSi/yellow-plugin-imgpop
+// imgpop Copyright (c) 2018 Norbert Simon, http://www.nosi.de
+// Based on YELLOW Copyright (c) 2013-2018 Datenstrom, https://datenstrom.se
 // This file may be used and distributed under the terms of the public license.
-// Autor: Norbert Simon
 
-// Image popup with CSS-styles plugin
 class YellowImgPop
 {
-	const Version = "0.0.6";
-  const NoTitle = "Keine weitere Bildbeschreibung";
-  const NoImg = "<b style=\"color:#FF0000\">Bildquelle fehlt!</b>";
+	const Version = "1.0.0";
+  const NoTitle = "No Image Description";
+  const NoImg = "<b style=\"color:#FF0000\">Image is missing!</b>";
 	var $yellow;			//access to API
 	
 	// Handle initialisation
@@ -27,6 +26,8 @@ class YellowImgPop
 			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
       if(empty($TheID)) $TheID = time();
       if(empty($TheTitle)) $TheTitle = self::NoTitle;
+	  $TheClass = (empty($TheClass)) ? $TheClass = '' : $TheClass = ' class="' . $TheClass . '"';
+	  	  
       if(empty($TheImage)) 
        {
        $output = self::NoImg;  
@@ -34,21 +35,15 @@ class YellowImgPop
       else
       {
        $TheImage = $this->yellow->config->get("imageDir").$TheImage;
-       $output = "<span id=\"" . $TheID . "\"";
-       if(!empty($TheClass)) 
-       {
-         $output .= "class=\"" . $TheClass  . "\"";
-       } 
-       $output .= "><a id=\"" . $TheID . "close\" href=\"#" . $TheID . "\" title=\"" . htmlspecialchars($TheTitle) . "\">";
-       $output .= "<img src=\"/" . $TheImage . "\" title=\"" . htmlspecialchars($TheTitle) . "\"></a>";
-       $output .= "<span class=\"imgnote\">" . htmlspecialchars($TheTitle) . "</span>";
-       $output .= "<a class=\"closer\" href=\"#" . $TheID . "close\">&otimes;</a>";
-       $output .= "</span>"; 
+       $output = '<span id="' . $TheID . '"' . $TheClass . '>';
+       $output .= '<a id="' . $TheID . 'close" href="#' . $TheID . '" title="' . htmlspecialchars($TheTitle) . '">';
+       $output .= '<img' . $TheClass . ' src="/' . $TheImage . '" title="' . htmlspecialchars($TheTitle) . '"></a>';
+       $output .= '<span class="imgnote">' . htmlspecialchars($TheTitle) . '</span>';
+       $output .= '<a class="closer" href="#' . $TheID . 'close">&otimes;</a>';
+       $output .= '</span>'; 
       }
 		}
 		return $output;
 	}
 }
-
-$yellow->plugins->register("imgpop", "YellowImgPop", YellowImgPop::Version);
 ?>
