@@ -1,27 +1,30 @@
-# Yellow Plugin imgpop 0.0.6
+# Yellow Plugin imgpop 1.0.0
 
-CSS only image popup for Yellow with dimmed background and subtitle, no additional script required.
+CSS only image popup for [Yellow](https://developers.datenstrom.se/de/help/ "see homepage of Yellow") with dimmed background and subtitle, no additional script required.
 
 ## The Idea Behind
 
-I wanted to have a simple use of images in my blog (http://blog.nosi.de → German only). So I created a CSS style that places images, included with the plugin concept of Yellow into the markdown. The standard places this image always on the right side of the text, reduced to maximum of 40% textwidth. Often this is too small for details.
+Typically "zoom functions" are realised with JavaScript and/or switching between a thumbnail image and a full size image. While I am optimising images *always* to achieve low traffic for users, an additional thumbnail in most cases is no advantage. Some css allows using a single image in *standard presentation* and full screen: 
 
-To avoid loading external and huge javascript, I created a few more CSS styles and this plugin, to expand the basic behaviour.
+![Sample of operation](imgpop.png)
+
+**The css below is required and has to be added to the standard css file**. It may be altered to personal needs or preferences.  
+
+The *standard presentation* is defined with the css as *aligned right, max-width 40% of textwidth*. This can be overridden by a class passed to the plugin.
 
 The image pops up to it´s maximum size or — if too large for viewport — 90% width or 80% height aspect ratio kept.
 
 ## How do I Install This?
 
 1. Download and install [Datenstrom Yellow CMS](https://github.com/datenstrom/yellow/).
-1. Donwload imgpop.php and copy it into the `system/plugins` folder.
-1. Add required css styles to your style sheet (see below)
+2. Donwload imgpop.php and copy it into the `system/plugins` folder.
+3. Add required css styles to your style sheet (see below)
 
 > There is no installer. To uninstall, simply delete the plugin and remove the additional css from your style sheet.
 
 ## How To Add A Popup Image?
 
-> Small and big image are the same. This means, that calling the page, loads the full image, but showing the full size needs no reload. Therefore you should optimize your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. The image is limited to its true size with the styles below. You can alter this. Be aware, that small images zoomed to bigger than true size very seldom look nice.
-
+> Small and big image are the same. This means, that calling the page, loads the full image, showing the full size needs no additional load. Therefore you should optimise your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. The image is limited to its true size with the styles below. You can alter this. Be aware, that small images zoomed to bigger than true size very seldom look nice.
 
 Create a `[imgpop TheImage TheTitle TheID TheClass]` shortcut.
 
@@ -30,26 +33,21 @@ The following arguments are available:
 `TheImage` = Filename and path (relative to `media/images` !) to the image, **required**     
 `TheTitle` = The Title for the image as `title` tag and subtitle.     
 `TheID` = The ID of the target. If missing, replaced by a timestamp (**not unique** if more than one image!).      
-`TheClass` =  Optional css class for additional formatting, to override the standard (s. below)
 
 > You should *always* give an unique ID for the image.
 
+`TheClass` =  Optional css class to override the standard formatting (s. below).
+
 Missing filename and missing title are are notified with a text in output page, that can be altered in head of plugin:
 
-- `const NoTitle = "Place your standard text here, if image title is missing";` 
-- `const NoImg = "Place your note here for missing image";`
-
-
-It´s licensed under [MIT license](http://opensource.org/licenses/MIT).
-
+- **const NoTitle** = "Place your standard text here, if image title is missing";
+- **const NoImg** = "Place your note here for missing image";
 
 ### Required CSS Styles
 
 You may alter this formats to your needs.
 
-
-~~~.css
-
+```.css
 .content img {
 	border: 0 none;
 	height: auto;
@@ -109,4 +107,6 @@ span:target>.closer {
 	color: #ffffff;
 }
 
-~~~
+```
+
+ImgPop is licensed under the terms of the public license.
