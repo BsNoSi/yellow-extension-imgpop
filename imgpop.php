@@ -1,9 +1,9 @@
 <?php
-// imgPop plugin, https://github.com/BsNoSi/yellow-plugin-imgpop
-// imgpop Copyright (c) 2018 Norbert Simon, http://www.nosi.de
-// Based on YELLOW Copyright (c) 2013-2018 Datenstrom, https://datenstrom.se
+// imgPop extension, https://github.com/BsNoSi/yellow-extension-imgpop
+// imgpop Copyright (c) 2018-now Norbert Simon, http://www.nosi.de for
+// YELLOW-CMS Copyright (c)2013-now Datenstrom, https://datenstrom.se
 // This file may be used and distributed under the terms of the public license.
-// Image popup with CSS-styles plugin
+
 class YellowImgPop
 {
 	const Version = "1.1.0";
@@ -23,7 +23,7 @@ class YellowImgPop
 			if(empty($TheImage)) {
 				$output = '<b style=\"color:#FF0000\">' . $this->yellow->text->get("imgpop_NoImg") . '</b>';  
 			}
-			
+		else {	
 			$TheID = $TheID ? : time();
 			$TheClass = (!$TheClass) ? $TheClass = '' : $TheClass = ' class="' . $TheClass . '"';
 			
@@ -43,7 +43,7 @@ class YellowImgPop
 				$output .= '<a class="closer" href="#' . $TheID . 'close">&otimes;</a>';
 				$output .= '</span>'; 
 			}
-		
+		}
 		return $output;
 		}
 		
