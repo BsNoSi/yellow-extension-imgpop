@@ -14,29 +14,26 @@ class YellowImgPop
 		$this->yellow = $yellow;
 	}
 	// Handle page content parsing of custom block
-	function onParseContentBlock($page, $name, $text, $shortcut)
-	{
+	public function onParseContentShortcut($page, $name, $text, $type) {
 		$output = NULL;
-		if($name=="imgpop" && $shortcut) {
+		if($name=="imgpop") {
 			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
+			
+					
 			if(empty($TheImage)) {
-				$output = '<b style=\"color:#FF0000\">Image Source Missing!</b>';  
+				$output = '<b style=\"color:#FF0000\">' . $this->yellow->text->get("imgpop_NoImg") . '</b>';  
 			}
-			else {
-				if (preg_match('/de/i', $_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
-					$NoTitle = "Ohne Bildbeschreibung.";
-				} 
-				else {
-					$NoTitle = "Without image description.";
-				}
-			if(empty($TheID)) $TheID = time();
-			$TheClass = (empty($TheClass)) ? $TheClass = '' : $TheClass = ' class="' . $TheClass . '"';
-			$TheImage = $this->yellow->config->get("imageDir").$TheImage;
-		    if(empty($TheTitle)){
+			
+			$TheID = $TheID ? : time();
+			$TheClass = (!$TheClass) ? $TheClass = '' : $TheClass = ' class="' . $TheClass . '"';
+			
+			$TheImage = $this->yellow->system->get("imageDir").$TheImage;
+			
+			if(empty($TheTitle)){
 				$exif = @exif_read_data($TheImage, 'COMMENT',true,false);
 				$TheTitle = utf8_encode($exif['COMMENT'][0]);
 		    }
-		    if(empty($TheTitle)) $TheTitle = $NoTitle;
+		    if(empty($TheTitle)) $TheTitle = $this->yellow->text->get("imgpop_NoTitle");
 			// $TheTitle = strip_tags($TheTitle,'<br>');
 			$tip = strip_tags($TheTitle);
 				$output = '<span id="' . $TheID . '"' . $TheClass . '>';
@@ -46,8 +43,18 @@ class YellowImgPop
 				$output .= '<a class="closer" href="#' . $TheID . 'close">&otimes;</a>';
 				$output .= '</span>'; 
 			}
-		}
+		
 		return $output;
+		}
+		
+		// Handle page extra data
+		public function onParsePageExtra($page, $name) {
+        $output = null;
+        if ($name=="header") {
+            $extensionLocation = $this->yellow->system->get("serverBase").$this->yellow->system->get("extensionLocation");
+            $output = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"{$extensionLocation}imgpop.css\" />\n";
+        }
+        return $output;
 	}
 }
 ?>
