@@ -1,0 +1,8 @@
+# Datenstrom Yellow language file
+
+Language: de
+LanguageDescription: Deutsch
+LanguageTranslator: Norbert Simon
+
+imgpop_NoTitle: No further description
+imgpop_NoImg: <b>Image source missing!</b>
