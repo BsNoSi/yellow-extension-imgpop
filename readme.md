@@ -1,4 +1,6 @@
-# Yellow Plugin imgpop 1.1.0
+# Yellow Extension imgpop
+
+Version 1.2.0
 
 CSS only image popup for [Yellow](https://developers.datenstrom.se/de/help/ "see homepage of Yellow") with dimmed background and subtitle, no additional script required. If a JPG file is used the exif comment optionally can be shown.
 
@@ -17,15 +19,15 @@ The image pops up to it´s maximum size or — if too large for viewport — 90%
 ## How do I Install This?
 
 1. Download and install [Datenstrom Yellow CMS](https://github.com/datenstrom/yellow/).
-2. Download [ImgPop plugin](https://github.com/BsNoSi/yellow-plugin-imgpop/archive/master.zip ).  If you are using Safari, right click and select 'Download file as'.
+2. Download [ImgPop plugin](https://github.com/BsNoSi/yellow-extension-imgpop/archive/master.zip ).  If you are using Safari, right click and select 'Download file as'.
 3. Copy the `yellow-plugin-imgpop-master.zip` into the `system/plugins` folder.
-3. **Add required css styles to your style sheet (see below)**
 
-> To uninstall, simply delete the plugin and remove the additional css from your style sheet.
+
+> To uninstall, delete the extension and its additional files.
 
 ## How To Add A Popup Image?
 
-> Small and big image are the same. This means, that calling the page, loads the full image, showing the full size needs no additional load. Therefore you should optimise your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. The image is limited to its true size with the styles below. You can alter this. Be aware, that small images zoomed to bigger than true size very seldom look nice.
+> Small and big image are the same. This means, that calling the page, loads the full image, showing the full size needs no additional load. Therefore you should optimise your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. The image is limited to its true size with imgpop.css. You can alter this. Be aware, that small images zoomed to bigger than true size very seldom look nice.
 
 Create a `[imgpop TheImage TheTitle TheID TheClass]` shortcut.
 
@@ -43,7 +45,7 @@ Missing filename generates an error message:
 
 `<b style=\"color:#FF0000\">Image Source Missing!</b>` 
 
-If *no title* is given to a jpeg file `imgpop` tries to display the exif comment of the file. An empty title is replaced by *Without image description* or on a German page  by *Ohne Bildbeschreibung*. 
+If *no title* is given to a jpeg file `imgpop` tries to display the exif comment of the file. An empty title is replaced by *No further description*. 
 
 > You should change the German part to your standard language and leave the English part as fallback. If you have a multilingual website you can introduce the missing language by adding an `if…else` for it.
 
@@ -70,71 +72,6 @@ A found comment may contain html witch is stripped for the title label but used 
 
 - Same as previous exept that an exif comment is used, if available.
 
-### Required CSS Styles
-
-You may alter this formats to your needs.
-
-```.css
-.content img {
-	border: 0 none;
-	height: auto;
-	max-width: 40%;
-	outline: 0 none;
-	float: right;
-	padding-left: 0.5rem
-}
-.imgnote, .closer {
-	display: none
-}
-.content span:target img {
-	max-width: 90% !important;
-	max-height: 90% !important;
-	padding: 0;
-	border: 1500px solid #0a0a0a;
-	border: 1500px solid rgba(10,10,10,.9);
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	background-color: #fff;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	max-width: 90%;
-	max-height: 80%;
-	transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	cursor: default
-}
-span:target .imgnote {
-	position: fixed;
-	bottom: 1%;
-	left: 50%;
-	max-width: 90%;
-	max-height: 8%;
-	transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	padding: 1rem;
-	z-index: 99;
-	background-color: #fff;
-	font-size: 1rem;
-	display: block
-}
-span:target>.closer {
-	position: fixed;
-	z-index: 100;
-	right: 2%;
-	top: 2%;
-	font-size: 6rem;
-	display: block;
-	color: #ffffff;
-}
-
-```
 
 ImgPop is licensed under the terms of the public license.
 
