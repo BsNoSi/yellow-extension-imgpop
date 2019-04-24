@@ -1,8 +1,9 @@
 <?php
-// imgPop extension, https://github.com/BsNoSi/yellow-extension-imgpop
-// imgpop Copyright (c) 2018-now Norbert Simon, http://www.nosi.de for
+// imgPop extension for YELLOW-CMS, https://github.com/BsNoSi/yellow-extension-imgpop
+// imgpop Copyright (c)2018-now Norbert Simon, http://www.nosi.de for
 // YELLOW-CMS Copyright (c)2013-now Datenstrom, https://datenstrom.se
 // This file may be used and distributed under the terms of the public license.
+//requires YELLOW 0.8.4 or higher
 
 class YellowImgPop
 {
@@ -20,8 +21,8 @@ class YellowImgPop
 			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
 			
 					
-			if(empty($TheImage)) {
-				$output = '<b style=\"color:#FF0000\">' . $this->yellow->text->get("imgpop_NoImg") . '</b>';  
+			if(empty($text)) {
+				$output = '<b>[imgpop (/media/image/)TheImage TheTitle TheID TheClass]</b>';  
 			}
 		else {	
 			$TheID = $TheID ? : time();
