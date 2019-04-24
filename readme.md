@@ -1,6 +1,6 @@
 # Yellow Extension imgpop
 
-Version 1.2.0
+Version 1.2.0 (requires YELLOW 0.8.4 or higher)
 
 CSS only image popup for [Yellow](https://developers.datenstrom.se/de/help/ "see homepage of Yellow") with dimmed background and subtitle, no additional script required. If a JPG file is used the exif comment optionally can be shown.
 
@@ -71,6 +71,8 @@ A found comment may contain html witch is stripped for the title label but used 
 `[imgpop portal/portal2.jpg - d1 left]` → 
 
 - Same as previous exept that an exif comment is used, if available.
+
+> [imgpop] without any parameter shows a bold parameter list in preview. If not bold you should check if imgpop is correctly installed.
 
 
 ImgPop is licensed under the terms of the public license.
