@@ -1,7 +1,0 @@
-# Datenstrom Yellow language file
-
-Language: de
-LanguageDescription: Deutsch
-LanguageTranslator: Norbert Simon
-
-imgpop_NoTitle: Kein Bildtitel
