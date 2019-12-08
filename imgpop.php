@@ -37,7 +37,7 @@ class YellowImgPop
 			// $TheTitle = strip_tags($TheTitle,'<br>');
 		 	$tip = strip_tags($TheTitle);
 	
-			$output = '<div<' . $TheClass . '>';
+			$output = '<div' . $TheClass . '>';
 			$output .= '<a class="iboxx" href="#' . $TheID . '"><img src="/' . $TheImage . '" title="'.$tip.'" /><span class="imag">🔍</span></a>';
 			$output .= '<a class="imgbox" id="' . $TheID . '"href="#_"><img src="/' . $TheImage . '"><span class="imgboxtitle">'.$tip.'</span></a></div>';		
 			}
