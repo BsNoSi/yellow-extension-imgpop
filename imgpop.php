@@ -7,7 +7,7 @@
 
 class YellowImgPop
 {
-	const Version = "1.1.0";
+	const Version = "1.5.0";
 	var $yellow;			//access to API
 	// Handle initialisation
 	function onLoad($yellow)
@@ -19,14 +19,13 @@ class YellowImgPop
 		$output = NULL;
 		if($name=="imgpop") {
 			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
-			
 					
 			if(empty($text)) {
 				$output = '<b>[imgpop (/media/image/)TheImage TheTitle TheID TheClass]</b>';  
 			}
 		else {	
 			$TheID = $TheID ? : time();
-			$TheClass = (!$TheClass) ? $TheClass = '' : $TheClass = ' class="' . $TheClass . '"';
+			$TheClass = (!$TheClass) ? $TheClass = ' class = "ipop"' : $TheClass = ' class="' . $TheClass . '"';
 			
 			$TheImage = $this->yellow->system->get("imageDir").$TheImage;
 			
@@ -36,13 +35,11 @@ class YellowImgPop
 		    }
 		    if(empty($TheTitle)) $TheTitle = $this->yellow->text->get("imgpop_NoTitle");
 			// $TheTitle = strip_tags($TheTitle,'<br>');
-			$tip = strip_tags($TheTitle);
-				$output = '<span id="' . $TheID . '"' . $TheClass . '>';
-				$output .= '<a id="' . $TheID . 'close" href="#' . $TheID . '" title="' . $tip . '">';
-				$output .= '<img' . $TheClass . ' src="/' . $TheImage . '" title="' . $tip . '"></a>';
-				$output .= '<span class="imgnote">' . $TheTitle . '</span>';
-				$output .= '<a class="closer" href="#' . $TheID . 'close">&otimes;</a>';
-				$output .= '</span>'; 
+		 	$tip = strip_tags($TheTitle);
+	
+			$output = '<div<' . $TheClass . '>';
+			$output .= '<a class="iboxx" href="#' . $TheID . '"><img src="/' . $TheImage . '" title="'.$tip.'" /><span class="imag">🔍</span></a>';
+			$output .= '<a class="imgbox" id="' . $TheID . '"href="#_"><img src="/' . $TheImage . '"><span class="imgboxtitle">'.$tip.'</span></a></div>';		
 			}
 		}
 		return $output;
@@ -51,7 +48,7 @@ class YellowImgPop
 		// Handle page extra data
 		public function onParsePageExtra($page, $name) {
         $output = null;
-        if ($name=="header") {
+        if ($name=="footer") {
             $extensionLocation = $this->yellow->system->get("serverBase").$this->yellow->system->get("extensionLocation");
             $output = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"{$extensionLocation}imgpop.css\" />\n";
         }
