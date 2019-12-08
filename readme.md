@@ -1,6 +1,6 @@
 # Yellow Extension imgpop
 
-Version 1.2.0 (requires YELLOW 0.8.4 or higher)
+Version 1.5.0 (requires YELLOW 0.8.4 or higher)
 
 CSS only image popup for [Yellow](https://developers.datenstrom.se/de/help/ "see homepage of Yellow") with dimmed background and subtitle, no additional script required. If a JPG file is used the exif comment optionally can be shown.
 
@@ -10,11 +10,14 @@ Typically "zoom functions" are realised with JavaScript and/or switching between
 
 ![Sample of operation](imgpop.png)
 
-> The css below is required to achieve this behaviour. You can add it to the standard css file and  alter it to your personal needs or preferences. 
+> The "closer" shown in this pictue was removed in version 1.5. Now the full window (except description area) can close the zoomed image.
 
-The *standard presentation* is defined with the css as *aligned right, max-width 40% of textwidth*. This can be overridden by a class passed to the plugin.
 
-The image pops up to it´s maximum size or — if too large for viewport — 90% width or 80% height aspect ratio kept.
+The Extension comes with a prepared CSS-file that is added to the *footer* of a page where imgpop ist used.
+
+The *standard presentation*, passed as style "ipop", is defined as *aligned right, max-width 30% of textwidth*. This can be overridden by a class passed to the plugin.
+
+The image pops up to it´s maximum size or — if too large for viewport — 90% width or 90% height aspect ratio kept.
 
 ## How do I Install This?
 
@@ -46,8 +49,6 @@ Missing filename generates an error message:
 `<b style=\"color:#FF0000\">Image Source Missing!</b>` 
 
 If *no title* is given to a jpeg file `imgpop` tries to display the exif comment of the file. An empty title is replaced by *No further description*. 
-
-> You should change the German part to your standard language and leave the English part as fallback. If you have a multilingual website you can introduce the missing language by adding an `if…else` for it.
 
 A found comment may contain html witch is stripped for the title label but used for the description of the zoomed image. 
 
