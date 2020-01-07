@@ -41,7 +41,7 @@ The following arguments are available:
 |  TheID   | The ID of the target. If missing, replaced by the filename. If two images with the same filename (from different folders) are shown on the same page, this will always show the first image with the same name. To avoid this, you should prefer unique IDs. |
 | TheClass | Additional class(es) to basic `impop` class for adding or overriding the preset. |
 
-> The comment is stripped off from all tags except `<br>` an `<br/>`.
+> All tags are stripped off from TheTitle except `<br>` and `<br/>`.
 
 ### Examples
 
