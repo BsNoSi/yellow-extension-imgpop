@@ -3,11 +3,11 @@
 // imgpop Copyright (c)2018-now Norbert Simon, http://www.nosi.de for
 // YELLOW-CMS Copyright (c)2013-now Datenstrom, https://datenstrom.se
 // This file may be used and distributed under the terms of the public license.
-//requires YELLOW 0.8.4 or higher
+//requires YELLOW 0.8.13 or higher
 
 class YellowImgPop
 {
-	const Version = "1.6.0";
+	const Version = "1.6.1";
 	var $yellow;			//access to API
 // Handle initialisation
 	function onLoad($yellow) {
@@ -17,10 +17,10 @@ class YellowImgPop
 	public function onParseContentShortcut($page, $name, $text, $type) {
 		$output = NULL;
 		if($name=="imgpop") {
-			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
+			list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArguments($text);
 			
 			if(empty($text)) {
-				$output = '<b>[imgpop (/media/image/)TheImage TheTitle TheID TheClass]</b>';  
+				$output = '<b>[imgpop (image dir+)TheImage TheTitle TheID TheClass]</b>';  
 			}
 			else {
 				$TheID = $TheID ? : pathinfo($TheImage)["filename"];
