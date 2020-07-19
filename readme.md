@@ -1,6 +1,6 @@
 # Yellow Extension imgpop
 
-Version 1.6.0 (requires YELLOW 0.8.4 or higher)
+Version 1.6.1 (requires YELLOW 0.8.13 or higher)
 
 CSS only image popup for [Yellow](https://developers.datenstrom.se/de/help/ "see homepage of Yellow") with dimmed background and subtitle, no additional script required. Reads image comment from file or exif, if available.
 
@@ -77,6 +77,8 @@ ImgPop is licensed under the terms of the public license.
 2019-12-08: Improved behavior, closer removed, magnifier symbol added
 
 2020-01-07: Filename instead of timestamp as ID, text file for *large* title, default *small* title, Readme overhaul
+
+2020-07-19: Alignment to API changes for 0.8.13 and above
 
 ## Developer
 
