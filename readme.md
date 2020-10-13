@@ -1,6 +1,8 @@
 # Yellow Extension imgpop
 
-Version 1.6.1 (requires YELLOW 0.8.13 or higher)
+Version 1.7
+
+> Tested with Yellow 0.815
 
 CSS only image popup for [Yellow](https://developers.datenstrom.se/de/help/ "see homepage of Yellow") with dimmed background and subtitle, no additional script required. Reads image comment from file or exif, if available.
 
@@ -12,7 +14,7 @@ Typically "zoom functions" are realized with JavaScript and/or switching between
 
 Clicking or taping the *small* image it pops up to it´s maximum size or — if too large for viewport — 90% width or 90% height aspect ratio kept. The title of the *small* picture is set by default (see `imgpop.txt`) to »Please click for description«. The Title of the *large* picture can be set directly, fetched from a file `imagename.txt` in the same folder as the picture or from exif data (only jpeg images support this). 
 
-The Extension comes with a prepared CSS-file that is added to the *footer* of a page *where imgpop ist used*. The *standard presentation*, passed as style "ipop" is defined with a maximum width of 30% for the *small* image. This can be overriden by additional styles or you may modify `imgpop.css` to your needs.
+The Extension comes with a prepared CSS-file that is added to the *footer* of a page *where imgpop ist used*. The *standard presentation*, passed as style "ipop" is defined with a maximum width of 30% for the *small* image. This can be overridden by additional styles or you may modify `imgpop.css` to your needs.
 
 ## How do I Install This?
 
@@ -70,15 +72,16 @@ ImgPop is licensed under the terms of the public license.
 
 ## History
 
-2018-09-07: Initial Release
-
-2019-04-23: Exif read for jpeg files, improved css
-
-2019-12-08: Improved behavior, closer removed, magnifier symbol added
+2020-10-13: Alignments to changes of Yellow API, split of translation into language.files.
 
 2020-01-07: Filename instead of timestamp as ID, text file for *large* title, default *small* title, Readme overhaul
 
-2020-07-19: Alignment to API changes for 0.8.13 and above
+2019-12-08: Improved behavior, closer removed, magnifier symbol added
+
+2019-04-23: Exif read for jpeg files, improved css
+
+2018-09-07: Initial Release
+
 
 ## Developer
 
