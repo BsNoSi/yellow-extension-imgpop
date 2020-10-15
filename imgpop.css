@@ -1,11 +1,13 @@
-/* CSS imgpop 1.6 © 2020 NoSi.de */
-.ipop{position:relative; max-width:30%;padding:0;display:inline-block;}
+/* CSS imgpop 1.7 © 2019 NoSi.de */
+.ipop{position:relative; max-width:30%;padding:0;display:inline-block;float:right;padding-left:1em}
+.ipop img {border:0;margin:0;padding:0;}
 .iboxx img{position:relative; border:0 none;height:auto;outline:0 none; max-width:100%;}
-.imag{position:absolute;padding:0.2rem;bottom:0.5rem;right:1px;background:rgba(255,255,255,0.8);  font-size:1rem;border-radius:50%;}
+.imag-old {padding:0.2rem;bottom:0.6rem;right:0.2rem;background:rgba(255,255,255,0.8);  font-size:1rem;border-radius:50%;}
+.iboxx .imag {position:relative; bottom:2.5rem;display: grid;grid-template-columns: 1fr;text-align: right;padding: 0.3rem; text-shadow:0.5rem 0.5rem 1rem #fff,-0.5rem -0.5rem 1rem #fff,0.5rem -0.5rem 1rem #fff,-0.5rem 0.5rem 1rem #fff,0.5rem 0.5rem 1rem #fff,-0.5rem -0.5rem 1rem #fff,0.5rem -0.5rem 1rem #fff,-0.5rem 0.5rem 1rem #fff,0.5rem 0.5rem 1rem #fff,-0.5rem -0.5rem 1rem #fff,0.5rem -0.5rem 1rem #fff,-0.5rem 0.5rem 1rem #fff;}
 .imgbox{position:fixed;  z-index:99;  top:0;  left:0;  width:100%;  height:100%;  background:rgba(0,0,0,0.8);  transition:opacity .3s;  visibility:hidden;}
 .imgbox img{max-width:90%;max-height:90%;position:fixed;left:50%;top:50%;    -webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);      transform:translate(-50%,-50%);}
 .imgbox:target{outline:none;visibility:visible;cursor:default;}
 .imgboxtitle{position:fixed;background:rgba(255,255,255,0.9);padding:1rem;bottom:1rem;left:50%;	-webkit-transform:translate(-50%,0);-moz-transform:translate(-50%,0);-o-transform:translate(-50%,0);	-ms-transform:translate(-50%,0);transform:translate(-50%,0);}
-.fl {float:left;padding-right:1em;}
-.fr{float:right;padding-left:1em;}
+.fl {float:left;padding-right:1em;width:auto;}
+.fr{float:right;padding-left:1em;width:auto;}
 .mw{max-width:100%}
