@@ -1,6 +1,6 @@
 # Yellow Extension imgpop
 
-Version 1.7
+Version 1.7.5
 
 > Tested with Yellow 0.815
 
@@ -29,8 +29,9 @@ To uninstall, delete the extension and its additional files.
 
 ## How To Add A Popup Image
 
-> Small and big image are the same. This means, that calling the page, loads the full image displaying it small. Showing the full size needs no additional load. Therefore you should optimize your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. Think about using "webp", which has a small file size, even with large image dimensions.      
-> The image is limited to its true size with imgpop.css. You can alter this. Be aware, that small images that are zoomed larger than their actual size very rarely look beautiful.
+> "Small" and "big" image are the same. This means, that calling the page, loads the full image displaying it small. Showing the full size needs no additional load. Therefore you should optimize your images to a suitable size. Big enough but as small as possible, to reduce required bandwidth. Think about using "webp", which has in many cases a smaller file size compared to jpeg or png.      
+
+> The image zoom is limited to its original dimensions with imgpop.css to avoid distortion of upscaled images. You may alter this in the css-file. 
 
 Create a `[imgpop TheImage TheTitle TheID TheClass]` shortcut.
 
@@ -72,15 +73,31 @@ ImgPop is licensed under the terms of the public license.
 
 ## History
 
-2020-10-13: Alignments to changes of Yellow API, split of translation into language.files.
+2020-10-15: Modifications: 
 
-2020-01-07: Filename instead of timestamp as ID, text file for *large* title, default *small* title, Readme overhaul
+- If a class ist passed, the default class `ipop` is removed to reduce cross interference of other classes.
+- Positioning of the magnifier uses another strategy to make it more robust with various formating.
+- Magnifier background is no more a sharp circle but a blurred background as a follow up of the new positioning strategy.
 
-2019-12-08: Improved behavior, closer removed, magnifier symbol added
+2020-10-13: 
 
-2019-04-23: Exif read for jpeg files, improved css
+- Alignments to changes of Yellow API, split of translation into language.files.
 
-2018-09-07: Initial Release
+2020-01-07: 
+
+- Filename instead of timestamp as ID, text file for *large* title, default *small* title, Readme overhaul
+
+2019-12-08: 
+
+- Improved behavior, closer removed, magnifier symbol added
+
+2019-04-23: 
+
+- Exif read for jpeg files, improved css
+
+2018-09-07: 
+
+- Initial Release
 
 
 ## Developer
