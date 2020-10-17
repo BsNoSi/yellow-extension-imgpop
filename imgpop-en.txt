@@ -1,6 +1,0 @@
-# Datenstrom Yellow language file
-# v1.6
-
-Language: en
-imgpop_NoTitle: No image description available
-imgpop_zoom: Please click for description
