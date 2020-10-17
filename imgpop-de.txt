@@ -1,6 +1,0 @@
-# Datenstrom Yellow language file
-# v1.6
-
-Language: de
-imgpop_NoTitle: Kein Bildbeschreibung verfügbar
-imgpop_zoom: Für Beschreibung bitte anklicken
