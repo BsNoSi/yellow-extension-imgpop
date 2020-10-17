@@ -7,7 +7,7 @@
 
 class YellowImgPop
 {
- const Version = "1.7.5";
+ const Version = "1.7.6";
  public $yellow;
 
  public function onLoad($yellow) {
@@ -17,18 +17,19 @@ class YellowImgPop
  public function onParseContentShortcut($page, $name, $text, $type) {
    $output = NULL;
    if($name=="imgpop") {
-	list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArgs($text);
+	list($TheImage, $TheTitle, $TheID, $TheClass) = $this->yellow->toolbox->getTextArguments($text);
 			
 	if(empty($text)) {
-		$output = '<b>[imgpop (/media/image/)TheImage TheTitle TheID TheClass Lng]</b>';  
+		$output = '<b>{coreImageDir}TheImage TheTitle TheID TheClass Lng]</b>';  
 	}
 	else {
 		$TheID = $TheID ? : pathinfo($TheImage)["filename"];
 		$TheClass = (!$TheClass) ? $TheClass = ' class = "ipop"' : $TheClass = ' class="' . $TheClass . '"';
-		$TheImage = $this->yellow->system->get("imageDir").$TheImage;
+		
+		$TheImage = $this->yellow->system->get("coreImageDirectory").$TheImage;
 				
 		if(empty($TheTitle)) {
-			$check = $this->yellow->system->get("imageDir").pathinfo($TheImage)["filename"] . ".txt";
+			$check = $this->yellow->system->get("coreImageDirectory").pathinfo($TheImage)["filename"] . ".txt";
 			if (file_exists($check)) {
 				$TheTitle = file_get_contents($check);
 			}
@@ -51,7 +52,7 @@ class YellowImgPop
  public function onParsePageExtra($page, $name) {
   $output = null;
   if ($name=="footer") {
-	$extensionLocation = $this->yellow->system->get("serverBase").$this->yellow->system->get("extensionLocation");
+	  $extensionLocation = $this->yellow->system->get("coreServerBase").$this->yellow->system->get("coreExtensionLocation");
 	$output = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"{$extensionLocation}imgpop.css\" />\n";
   }
   return $output;
