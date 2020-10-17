@@ -1,0 +1,13 @@
+# imgpop extension, https://github.com/BsNoSi/yellow-extension-imgpop
+
+Language: de
+imgpop_NoTitle: Kein Bildbeschreibung verfügbar
+imgpop_zoom: Für Beschreibung bitte anklicken
+
+Language: en
+imgpop_NoTitle: No image description available
+imgpop_zoom: Please click for description
+
+Language: fr
+imgpop_NoTitle: Aucune description d'image disponible
+imgpop_zoom: Cliquez pour la description
