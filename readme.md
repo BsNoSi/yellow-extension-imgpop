@@ -1,8 +1,10 @@
 # Yellow Extension imgpop
 
-Version 1.7.6
+Version 1.7.7
 
-> Tested with core version 0.8.23
+> Tested with Version 0.8.33 / Release 0.8.16 of Yellow
+
+2020-11-21: Alignment to install changes
 
 ## Application
 
